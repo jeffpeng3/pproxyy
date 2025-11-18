@@ -1,0 +1,181 @@
+services:
+  - name: service-0
+    addr: :8080
+    handler:
+      type: http
+      chain: c0
+      auth:
+        username: <UNAME>
+        password: <PASSWORD>
+    listener:
+      type: tcp
+  - name: service-1
+    addr: :8081
+    handler:
+      type: http
+      chain: c1
+      auth:
+        username: <UNAME>
+        password: <PASSWORD>
+    listener:
+      type: tcp
+  - name: service-2
+    addr: :8082
+    handler:
+      type: http
+      chain: c2
+      auth:
+        username: <UNAME>
+        password: <PASSWORD>
+    listener:
+      type: tcp
+  - name: service-3
+    addr: :8083
+    handler:
+      type: http
+      chain: c3
+      auth:
+        username: <UNAME>
+        password: <PASSWORD>
+    listener:
+      type: tcp
+  - name: service-4
+    addr: :8084
+    handler:
+      type: http
+      chain: c4
+      auth:
+        username: <UNAME>
+        password: <PASSWORD>
+    listener:
+      type: tcp
+  - name: service-5
+    addr: :8085
+    handler:
+      type: http
+      chain: c5
+      auth:
+        username: <UNAME>
+        password: <PASSWORD>
+    listener:
+      type: tcp
+  - name: service-6
+    addr: :8086
+    handler:
+      type: http
+      chain: c6
+      auth:
+        username: <UNAME>
+        password: <PASSWORD>
+    listener:
+      type: tcp
+  - name: service-7
+    addr: :8087
+    handler:
+      type: http
+      chain: c7
+      auth:
+        username: <UNAME>
+        password: <PASSWORD>
+    listener:
+      type: tcp
+chains:
+  - name: c0
+    hops:
+      - name: hop-0
+        nodes:
+          - name: node-0
+            addr: <PROXY_ADDR>:8080
+            connector:
+              type: http
+            dialer:
+              type: tcp
+              tls:
+                serverName: <PROXY_ADDR>
+  - name: c1
+    hops:
+      - name: hop-0
+        nodes:
+          - name: node-0
+            addr: <PROXY_ADDR>:8081
+            connector:
+              type: http
+            dialer:
+              type: tcp
+              tls:
+                serverName: <PROXY_ADDR>
+  - name: c2
+    hops:
+      - name: hop-0
+        nodes:
+          - name: node-0
+            addr: <PROXY_ADDR>:8082
+            connector:
+              type: http
+            dialer:
+              type: tcp
+              tls:
+                serverName: <PROXY_ADDR>
+  - name: c3
+    hops:
+      - name: hop-0
+        nodes:
+          - name: node-0
+            addr: <PROXY_ADDR>:8083
+            connector:
+              type: http
+            dialer:
+              type: tcp
+              tls:
+                serverName: <PROXY_ADDR>
+  - name: c4
+    hops:
+      - name: hop-0
+        nodes:
+          - name: node-0
+            addr: <PROXY_ADDR>:8084
+            connector:
+              type: http
+            dialer:
+              type: tcp
+              tls:
+                serverName: <PROXY_ADDR>
+  - name: c5
+    hops:
+      - name: hop-0
+        nodes:
+          - name: node-0
+            addr: <PROXY_ADDR>:8085
+            connector:
+              type: http
+            dialer:
+              type: tcp
+              tls:
+                serverName: <PROXY_ADDR>
+  - name: c6
+    hops:
+      - name: hop-0
+        nodes:
+          - name: node-0
+            addr: <PROXY_ADDR>:8086
+            connector:
+              type: http
+            dialer:
+              type: tcp
+              tls:
+                serverName: <PROXY_ADDR>
+  - name: c7
+    hops:
+      - name: hop-0
+        nodes:
+          - name: node-0
+            addr: <PROXY_ADDR>:8087
+            connector:
+              type: http
+            dialer:
+              type: tcp
+              tls:
+                serverName: <PROXY_ADDR>
+log:
+  level: debug
+  format: text

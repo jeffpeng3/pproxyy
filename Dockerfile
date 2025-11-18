@@ -1,5 +1,10 @@
 FROM gogost/gost
 
-COPY entrypoint.sh /entrypoint.sh
+RUN mkdir -p /app
 
-ENTRYPOINT ["/entrypoint.sh"]
+WORKDIR /app
+
+COPY template.yaml template.yaml
+COPY entrypoint.sh entrypoint.sh
+
+ENTRYPOINT ["/app/entrypoint.sh"]

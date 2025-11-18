@@ -8,11 +8,10 @@ echo "遠端位址: $PROXY_ADDR"
 echo "Username: $USERNAME"
 echo "Password: $PASSWORD"
 
-s=""
-for port in $(seq 8080 8087); do
-    echo "添加 gost 實例在端口 $port"
-    s="$s -L http://$USERNAME:$PASSWORD@0.0.0.0:$port -F http://$PROXY_ADDR:$port"
-done
-echo /bin/gost $s
+cp template.yaml gost.yaml
 
-/bin/gost $s
+sed -i "s/<UNAME>/$USERNAME/g" gost.yaml
+sed -i "s/<PASSWORD>/$PASSWORD/g" gost.yaml
+sed -i "s/<PROXY_ADDR>/$PROXY_ADDR/g" gost.yaml
+
+gost
