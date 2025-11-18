@@ -177,5 +177,4 @@ chains:
               tls:
                 serverName: <PROXY_ADDR>
 log:
-  level: debug
   format: text
